@@ -1,116 +1,223 @@
 ---
-import menus from "../collections/menu.json";
-import Logo from "../components/logo.astro";
+const nav = [
+  { label: "Home", href: "/" },
+  { label: "Writing", href: "#writing" },
+  { label: "Connect", href: "#connect" },
+];
 ---
 
-<!-- This is an invisible div with relative position so that it takes up the height of the menu (because menu is absolute/fixed) -->
-<div class="relative w-full h-20 opacity-0 pointer-events-none"></div>
-<header id="header" class="absolute top-0 z-50 w-full h-20">
-  <div
-    class="flex items-center justify-between h-full max-w-5xl pl-6 pr-4 mx-auto border-b border-l-0 border-r-0 border-transparent select-none lg:border-r lg:border-l lg:rounded-b-xl"
-  >
-    <Logo />
-    <div
-      id="mobileMenuBackground"
-      onclick="closeMobileMenu()"
-      class="fixed inset-0 z-20 hidden w-screen h-screen duration-300 ease-out bg-white/90 dark:bg-neutral-950/90"
-    >
-    </div>
-    <nav
-      class="relative z-30 flex flex-row-reverse justify-start w-full text-sm sm:justify-end text-neutral-500 dark:text-neutral-400 sm:flex-row"
-    >
-      <div
-        id="openMenu"
-        class="flex flex-col items-end justify-center w-6 h-6 ml-4 cursor-pointer sm:hidden"
-      >
-        <svg
-          class="w-8 h-8 dark:text-neutral-200"
-          fill="none"
-          stroke-linecap="round"
-          stroke-linejoin="round"
-          stroke-width="2"
-          viewBox="0 0 24 24"
-          stroke="currentColor"><path d="M4 8h16M4 16h16"></path></svg
-        >
-      </div>
-      <div
-        id="closeMenu"
-        class="flex flex-col items-end justify-center hidden w-6 h-6 ml-4 -translate-x-1 cursor-pointer sm:hidden"
-      >
-        <svg
-          class="w-6 h-6 text-neutral-600 dark:text-neutral-200"
-          fill="none"
-          stroke-linecap="round"
-          stroke-linejoin="round"
-          stroke-width="2"
-          viewBox="0 0 24 24"
-          stroke="currentColor"><path d="M6 18L18 6M6 6l12 12"></path></svg
-        >
-      </div>
-      <div
-        id="menu"
-        class="fixed top-[75px] ease-out duration-300 sm:top-0 w-full left-0 sm:py-0 pt-7 pb-4 dm:mx-0 left-0 z-40 flex-col items-end justify-start hidden w-full h-auto text-sm sm:text-base sm:h-auto sm:relative sm:flex-row sm:flex sm:text-sm sm:w-auto sm:pr-0 sm:pt-0"
-      >
-        <div
-          class="absolute inset-0 top-0 right-0 block w-full h-full px-3 sm:hidden"
-        >
-          <div
-            class="relative w-full h-full bg-white border border-dashed border-neutral-300 dark:border-neutral-700 backdrop-blur-sm rounded-xl dark:bg-neutral-950"
+<header class="sticky top-0 z-50">
+  <div class="pointer-events-none absolute inset-x-0 top-0 h-20 bg-gradient-to-b from-white/90 to-transparent dark:from-neutral-950/90"></div>
+
+  <div class="relative mx-auto w-full max-w-6xl px-6">
+    <div class="mt-4 rounded-3xl border border-neutral-200/70 dark:border-neutral-800/70 bg-white/70 dark:bg-neutral-950/60 backdrop-blur-xl shadow-sm">
+      <div class="flex items-center justify-between px-4 py-3 md:px-5">
+        <!-- Logo -->
+        <a href="/" class="group flex items-center gap-3">
+          <!-- AS monogram -->
+          <span
+            class="relative inline-flex h-10 w-10 items-center justify-center rounded-full
+                   border border-neutral-200 dark:border-neutral-800
+                   bg-white/70 dark:bg-neutral-950/60
+                   shadow-sm
+                   transition duration-300
+                   group-hover:-translate-y-0.5"
+            aria-label="Amanda Skurkovich"
           >
+            <!-- subtle glow on hover -->
+            <span
+              class="absolute inset-0 -z-10 rounded-full blur-xl opacity-0 transition duration-300
+                     bg-gradient-to-tr from-rose-200 via-fuchsia-200 to-sky-200
+                     dark:from-rose-900/25 dark:via-fuchsia-900/20 dark:to-sky-900/20
+                     group-hover:opacity-60"
+            ></span>
+
+            <span class="text-[13px] font-semibold tracking-[0.18em] text-neutral-900 dark:text-white">
+              AS
+            </span>
+          </span>
+
+          <!-- Wordmark -->
+          <div class="leading-tight">
+            <div class="flex items-center gap-2">
+              <span class="text-sm font-semibold text-neutral-900 dark:text-white">
+                Amanda Skurkovich
+              </span>
+              <span class="hidden md:inline-block h-[3px] w-[3px] rounded-full bg-neutral-300 dark:bg-neutral-700"></span>
+              <span class="hidden md:inline-block text-xs text-neutral-500 dark:text-neutral-400">
+                quiet luxury, sharp thinking
+              </span>
+            </div>
+
+            <span class="block text-[11px] text-neutral-500 dark:text-neutral-400">
+              Finance × AI governance × Policy
+            </span>
           </div>
-        </div>
-        {
-          menus.map((menu) => {
-            return (
-              <a
-                href={menu.url}
-                class="relative flex items-center justify-center w-full px-3 py-2 font-medium tracking-wide text-center duration-200 ease-out sm:py-0 sm:mb-0 md:w-auto hover:text-neutral-900 dark:hover:text-white"
-              >
-                {menu.name}
-              </a>
-            )
-          })
-        }
-      </div>
-      <div
-        id="darkToggle"
-        class="relative flex items-center pl-6 ml-4 font-medium tracking-wide cursor-pointer text-neutral-800 group dark:text-white"
-      >
-        <div
-          class="absolute left-0 flex items-center justify-center w-6 h-6 overflow-hidden border-b border-transparent horizon group-hover:border-neutral-600"
+        </a>
+
+        <!-- Desktop nav -->
+        <nav class="hidden md:flex items-center gap-2">
+          {nav.map((item) => (
+            <a
+              href={item.href}
+              class="group relative rounded-full px-3 py-2 text-sm text-neutral-600 dark:text-neutral-300
+                     hover:text-neutral-900 dark:hover:text-white transition"
+            >
+              {item.label}
+              <span
+                class="absolute left-3 right-3 -bottom-0.5 h-px origin-left scale-x-0 transition duration-300
+                       bg-gradient-to-r from-transparent via-neutral-300 to-transparent
+                       dark:via-neutral-700
+                       group-hover:scale-x-100"
+              ></span>
+            </a>
+          ))}
+
+          <div class="mx-2 h-6 w-px bg-neutral-200 dark:bg-neutral-800"></div>
+
+          <a
+            href="/resume.pdf"
+            class="rounded-full border border-neutral-200 dark:border-neutral-800 px-4 py-2 text-sm
+                   bg-white/60 dark:bg-neutral-950/40
+                   text-neutral-800 dark:text-neutral-200
+                   hover:shadow-sm transition"
+          >
+            Resume
+          </a>
+
+          <a
+            href="#connect"
+            class="rounded-full px-4 py-2 text-sm font-semibold text-white
+                   bg-neutral-900 hover:bg-neutral-800
+                   dark:bg-white dark:text-neutral-950 dark:hover:bg-neutral-100
+                   transition shadow-sm"
+          >
+            Let’s connect
+          </a>
+        </nav>
+
+        <!-- Mobile menu button -->
+        <button
+          id="menuBtn"
+          class="md:hidden inline-flex items-center justify-center h-10 w-10 rounded-full
+                 border border-neutral-200 dark:border-neutral-800
+                 bg-white/60 dark:bg-neutral-950/40
+                 text-neutral-700 dark:text-neutral-200
+                 hover:shadow-sm transition"
+          aria-label="Open menu"
+          aria-expanded="false"
+          aria-controls="mobileMenu"
+          type="button"
         >
-          <svg
-            class="absolute w-6 h-6 transition duration-700 transform ease"
-            id="sun"
-            fill="none"
-            stroke-linecap="round"
-            stroke-linejoin="round"
-            stroke-width="2"
-            viewBox="0 0 24 24"
-            stroke="currentColor"
-            ><path
-              d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"
-            ></path></svg
-          >
-          <svg
-            class="absolute hidden w-6 h-6 transition duration-700 transform ease"
-            id="moon"
-            fill="none"
-            stroke-linecap="round"
-            stroke-linejoin="round"
-            stroke-width="2"
-            viewBox="0 0 24 24"
-            stroke="currentColor"
-            ><path
-              d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"
-            ></path></svg
-          >
-        </div>
-        <span class="hidden sm:inline-block">
-          <span id="dayText" class="ml-2">Day mode</span>
-          <span id="nightText" class="hidden ml-2">Night mode</span>
-        </span>
+          ☰
+        </button>
       </div>
-    </nav>
+    </div>
   </div>
+
+  <!-- Mobile drawer -->
+  <div id="mobileMenu" class="fixed inset-0 z-50 hidden">
+    <div id="menuBackdrop" class="absolute inset-0 bg-black/30"></div>
+
+    <div
+      class="absolute right-0 top-0 h-full w-[88%] max-w-sm
+             bg-white dark:bg-neutral-950
+             border-l border-neutral-200 dark:border-neutral-800
+             shadow-2xl"
+      role="dialog"
+      aria-modal="true"
+    >
+      <!-- Side header with matching monogram -->
+      <div class="p-6 border-b border-neutral-200 dark:border-neutral-800">
+        <div class="flex items-center justify-between">
+          <div class="flex items-center gap-3">
+            <span
+              class="inline-flex h-11 w-11 items-center justify-center rounded-full
+                     border border-neutral-200 dark:border-neutral-800
+                     bg-white/70 dark:bg-neutral-950/60 shadow-sm"
+            >
+              <span class="text-[13px] font-semibold tracking-[0.18em]">AS</span>
+            </span>
+            <div>
+              <p class="text-sm font-semibold">Amanda Skurkovich</p>
+              <p class="text-xs text-neutral-500 dark:text-neutral-400">Finance × AI × Policy</p>
+            </div>
+          </div>
+
+          <button
+            id="closeMenuBtn"
+            class="inline-flex items-center justify-center h-10 w-10 rounded-full
+                   border border-neutral-200 dark:border-neutral-800
+                   bg-white/60 dark:bg-neutral-950/40
+                   hover:shadow-sm transition"
+            aria-label="Close menu"
+            type="button"
+          >
+            ✕
+          </button>
+        </div>
+      </div>
+
+      <div class="p-6 space-y-3">
+        {nav.map((item) => (
+          <a
+            href={item.href}
+            class="block rounded-2xl border border-neutral-200 dark:border-neutral-800
+                   bg-white/60 dark:bg-neutral-950/40
+                   px-4 py-3 text-sm text-neutral-800 dark:text-neutral-200
+                   hover:shadow-sm transition"
+          >
+            {item.label}
+          </a>
+        ))}
+
+        <div class="pt-2 space-y-3">
+          <a
+            href="/resume.pdf"
+            class="block text-center rounded-2xl border border-neutral-200 dark:border-neutral-800
+                   bg-white/60 dark:bg-neutral-950/40
+                   px-4 py-3 text-sm font-semibold hover:shadow-sm transition"
+          >
+            View Resume
+          </a>
+
+          <a
+            href="#connect"
+            class="block text-center rounded-2xl px-4 py-3 text-sm font-semibold text-white
+                   bg-neutral-900 hover:bg-neutral-800
+                   dark:bg-white dark:text-neutral-950 dark:hover:bg-neutral-100
+                   transition shadow-sm"
+          >
+            Let’s connect
+          </a>
+        </div>
+
+        <p class="pt-6 text-xs text-neutral-500 dark:text-neutral-400">
+          Open to thoughtful conversations, networking, and collaboration.
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Tiny JS to toggle the drawer -->
+  <script is:inline>
+    const menuBtn = document.getElementById("menuBtn");
+    const closeBtn = document.getElementById("closeMenuBtn");
+    const menu = document.getElementById("mobileMenu");
+    const backdrop = document.getElementById("menuBackdrop");
+
+    function openMenu() {
+      menu.classList.remove("hidden");
+      menuBtn?.setAttribute("aria-expanded", "true");
+    }
+
+    function closeMenu() {
+      menu.classList.add("hidden");
+      menuBtn?.setAttribute("aria-expanded", "false");
+    }
+
+    menuBtn?.addEventListener("click", openMenu);
+    closeBtn?.addEventListener("click", closeMenu);
+    backdrop?.addEventListener("click", closeMenu);
+  </script>
 </header>
