@@ -14,8 +14,7 @@ const { title } = Astro.props;
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>{title}</title>
 
-    <!-- Favicon (AS) -->
-    <!-- IMPORTANT: favicon.ico must live in /public -->
+    <!-- Quiet luxury favicon (AS) -->
     <link rel="icon" href="/favicon.ico" />
 
     <!-- Prevent dark-mode flash -->
@@ -27,39 +26,28 @@ const { title } = Astro.props;
       }
     </script>
 
-    <!-- Global styles -->
     <style>
       .prose img {
         border-radius: 20px;
       }
     </style>
 
-    <!-- Main CSS -->
+    <!-- Main CSS (must be a stylesheet, not a script) -->
     <link rel="stylesheet" href="/assets/css/main.css" />
 
-    <!-- Optional injected head content -->
     <Fragment set:html={import.meta.env.HEADER_INJECT} />
   </head>
 
-  <body class="antialiased bg-white dark:bg-neutral-950">
-    <!-- Decorative background -->
+  <body class="antialiased bg-white text-neutral-900 dark:bg-neutral-950 dark:text-neutral-100">
     <SquareLines />
-
-    <!-- Navigation -->
     <Header />
-
-    <!-- Page content -->
     <main>
       <slot />
     </main>
-
-    <!-- Footer -->
     <Footer />
 
-    <!-- Main JS -->
     <script src="/assets/js/main.js"></script>
-
-    <!-- Optional injected footer content -->
     <Fragment set:html={import.meta.env.FOOTER_INJECT} />
   </body>
 </html>
+
