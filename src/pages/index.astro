@@ -77,15 +77,22 @@ import Layout from "../layouts/main.astro";
             <span class="text-2xl">✨</span>
           </div>
 
-          <div class="relative z-30 px-6">
-            <img
-              src="amanda.jpg"
-              alt="Photo of Amanda Skurkovich"
-              loading="eager"
-              decoding="auto"
-              class="relative z-30 w-full aspect-[4/5] object-cover rounded-2xl border border-neutral-200 dark:border-neutral-800"
-            />
-          </div>
+        <div class="relative">
+  <!-- gradient glow -->
+  <div
+    class="absolute inset-0 -z-10 rounded-3xl blur-3xl opacity-60
+           bg-gradient-to-tr from-sky-300 via-indigo-300 to-fuchsia-300
+           dark:from-sky-900/30 dark:via-indigo-900/20 dark:to-fuchsia-900/20">
+  </div>
+
+  <img
+    src="/amanda.jpg"
+    alt="Photo of Amanda Skurkovich"
+    class="relative z-10 w-full aspect-[4/5] object-cover rounded-3xl
+           border border-neutral-200 dark:border-neutral-800 shadow-xl"
+  />
+</div>
+
 
           <div class="absolute inset-0 z-20 translate-x-2 translate-y-2 border border-dashed rounded-2xl bg-gradient-to-r dark:from-neutral-950 dark:via-black dark:to-neutral-950 from-white via-neutral-50 to-white border-neutral-300 dark:border-neutral-700"></div>
         </div>
