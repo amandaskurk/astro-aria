@@ -1,2 +1,57 @@
 ---
-import Footer from "../components/footer.astro"; import Header from "../components/header.astro"; import SquareLines from "../components/square-lines.astro"; const { title } = Astro.props; --- <!doctype html> <html lang="en"> <head> <!-- Basics --> <meta charset="UTF-8" /> <meta name="viewport" content="width=device-width, initial-scale=1" /> <title>{title}</title> <!-- Quiet luxury favicon (AS) --> <link rel="icon" href="/favicon.ico" /> <!-- Prevent dark-mode flash --> <script is:inline> if (typeof Storage !== "undefined") { if (localStorage.getItem("dark_mode") === "true") { document.documentElement.classList.add("dark"); } } </script> <style> .prose img { border-radius: 20px; } </style> <!-- Main CSS (must be a stylesheet, not a script) --> <link rel="stylesheet" href="/assets/css/main.css" /> <Fragment set:html={import.meta.env.HEADER_INJECT} /> </head> <body class="antialiased bg-white text-neutral-900 dark:bg-neutral-950 dark:text-neutral-100"> <SquareLines /> <Header /> <main> <slot /> </main> <Footer /> <script src="/assets/js/main.js"></script> <Fragment set:html={import.meta.env.FOOTER_INJECT} /> </body> </html>
+---
+import Footer from "../components/footer.astro";
+import Header from "../components/header.astro";
+import SquareLines from "../components/square-lines.astro";
+
+// ✅ This is the correct way to include Tailwind/CSS so it bundles in production
+import "../assets/css/main.css";
+
+const { title } = Astro.props;
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Basics -->
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{title}</title>
+
+    <!-- Quiet luxury favicon (AS) -->
+    <link rel="icon" href="/favicon.ico" />
+
+    <!-- Prevent dark-mode flash -->
+    <script is:inline>
+      if (typeof Storage !== "undefined") {
+        if (localStorage.getItem("dark_mode") === "true") {
+          document.documentElement.classList.add("dark");
+        }
+      }
+    </script>
+
+    <style>
+      .prose img {
+        border-radius: 20px;
+      }
+    </style>
+
+    <Fragment set:html={import.meta.env.HEADER_INJECT} />
+  </head>
+
+  <body class="antialiased bg-white text-neutral-900 dark:bg-neutral-950 dark:text-neutral-100">
+    <SquareLines />
+    <Header />
+    <main>
+      <slot />
+    </main>
+    <Footer />
+
+    <!-- ✅ Load your JS from src/assets so it bundles (important: module) -->
+    <script type="module">
+      import "../assets/js/main.js";
+    </script>
+
+    <Fragment set:html={import.meta.env.FOOTER_INJECT} />
+  </body>
+</html>
