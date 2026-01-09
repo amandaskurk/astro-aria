@@ -33,7 +33,10 @@ const { title } = Astro.props;
     </style>
 
     <!-- Main CSS (must be a stylesheet, not a script) -->
-    <link rel="stylesheet" href="/assets/css/main.css" />
+   <style is:global>
+  @import "../assets/css/main.css";
+</style>
+
 
     <Fragment set:html={import.meta.env.HEADER_INJECT} />
   </head>
