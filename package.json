@@ -3,15 +3,13 @@
 	"type": "module",
 	"version": "0.0.1",
 	"scripts": {
-  "dev": "astro dev",
-  "start": "astro dev",
-  "build": "astro build",
-  "preview": "astro preview",
-  "astro": "astro",
-  "check": "astro check",
-  "lint": "biome check .",
-  "format": "biome check --apply-unsafe ."
-},
+		"dev": "astro dev",
+		"start": "astro dev",
+		"build": "astro check && astro build",
+		"preview": "astro preview",
+		"astro": "astro",
+		"check": "biome check --apply-unsafe ."
+	},
 	"devDependencies": {
 		"@astrojs/check": "^0.6.0",
 		"@astrojs/tailwind": "^5.1.0",
