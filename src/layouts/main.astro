@@ -46,7 +46,7 @@ const { title } = Astro.props;
     </main>
     <Footer />
 
-    <script src="/assets/js/main.js"></script>
+    <script is:inline src="/assets/js/main.js"></script>
     <Fragment set:html={import.meta.env.FOOTER_INJECT} />
   </body>
 </html>
