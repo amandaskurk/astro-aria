@@ -1,73 +1,191 @@
 ---
 import Layout from "../../layouts/main.astro";
+
+const title = "Building Minds We Cannot Govern";
+const author = "Amanda Skurkovich";
+const date = "January 2026"; // change if you want
+const readingTime = "7 min read"; // optional
+const category = "AI • Markets • Regulation";
 ---
 
-<Layout title="Building Minds We Cannot Govern">
-  <section class="relative z-20 max-w-3xl mx-auto my-16 px-7 lg:px-0">
-    <header class="mb-12">
-      <h1 class="text-3xl md:text-4xl font-semibold tracking-tight text-neutral-900 dark:text-white">
-        Building Minds We Cannot Govern
+<Layout title={title}>
+  <article class="relative z-20 max-w-3xl mx-auto px-7 lg:px-0 pt-14 pb-24">
+    <!-- Top meta -->
+    <header class="mb-10">
+      <div class="flex flex-wrap items-center gap-2 text-xs font-medium text-neutral-600 dark:text-neutral-400">
+        <span class="inline-flex items-center rounded-full border border-neutral-200 dark:border-neutral-800 px-3 py-1">
+          {category}
+        </span>
+        <span aria-hidden="true">•</span>
+        <span>{date}</span>
+        <span aria-hidden="true">•</span>
+        <span>{readingTime}</span>
+      </div>
+
+      <h1 class="mt-6 text-4xl leading-tight tracking-tight font-semibold text-neutral-950 dark:text-neutral-100 sm:text-5xl">
+        {title}
       </h1>
 
-      <p class="mt-4 text-sm text-neutral-500 dark:text-neutral-400">
-        Amanda Skurkovich
-      </p>
-    </header>
-
-    <article class="prose prose-neutral dark:prose-invert max-w-none leading-relaxed">
-      <p>
+      <p class="mt-4 text-lg leading-8 text-neutral-700 dark:text-neutral-300">
         What does responsibility look like when we do not fully understand the system we are building?
         I am not an expert yet, but I am exactly the person who will live with the consequences.
-        This essay is an attempt to think honestly and early about the kind of world my generation
-        is being asked to step into.
+        This essay is an attempt to think honestly and early about the kind of world my generation is being asked to step into.
       </p>
 
-     Most of what shapes our lives today no longer exists in the physical world. It unfolds inside models, abstractions, incentives, and systems we cannot see. Markets move on expectations. Wars begin with information asymmetry. Entire economies run on prediction.
- </p>
-Artificial intelligence fits seamlessly into this invisible architecture, and perhaps that is why its arrival feels less strange than it should. Humanity is approaching the creation of systems more intelligent than ourselves, and rather than reacting with awe or alarm, we have folded this development into daily workflow. AI augments our writing, automates research, optimizes logistics, and quietly reshapes labor. The transition feels gradual, almost mundane. But speed has a way of disguising magnitude. We are moving faster than the human brain and our institutions were designed to understand.
- </p>
-What unsettles me is not the idea of conscious machines. It is how quickly we have normalized building something more capable than us without fully grappling with what that means for power, agency, and responsibility.
- </p>
- </p>
-What Our Generation Is Being Asked to Inherit
-Much of the public debate around AI safety fixates on consciousness, on whether machines will want things, feel emotions, or develop intentions. This misses the point. When you lose to an AI in chess, it is not because the machine is self aware. It is because it is better than you. 
- </p>
-Competence, not consciousness, is what changes the balance of power. An intelligent system does not need feelings to act. It only needs the ability to optimize. If a system can plan, adapt, and execute more effectively than humans, its internal experience becomes irrelevant. The belief that AI will remain safe so long as it is not conscious offers false comfort. What makes systems powerful is not awareness. It is capability.
- </p>
- </p>
-The Gorilla Problem
-There is a moment in evolutionary history when one branch of intelligence surpasses another so completely that the imbalance becomes irreversible. Humans did not dominate gorillas through malice or intent. We surpassed them through cognition. There was nothing gorillas could do to regulate us.
-       </p>
-The uncomfortable possibility is that we are now building the next branch. The gorilla problem is not about machines turning against us. It is about what happens when a more intelligent system exists alongside us and we are no longer the dominant decision makers. Control assumes symmetry, but asymmetry is precisely the risk.
-       </p>
-       </p>
-Why Markets, Not Intentions, Shape Our AI Future
-Even if caution were universal, economics would still push development forward. Credit markets remain open. Corporate confidence and spending continue to rise. Global manufacturing volumes are projected to grow sharply. The economic value of advanced AI, often estimated in the tens of quadrillions of dollars, acts like a gravitational force pulling progress toward it.
-       </p>
-This is what makes calls to slow down feel naive. No single actor needs to behave recklessly for the system to accelerate. Incentives alone do the work. As young adults entering this world, we are not choosing whether this future happens. We are inheriting it.
-       </p>
-       </p>
-Fast Takeoff and the Event Horizon
-There may come a point when AI systems are capable of improving themselves, conducting AI research, optimizing their own architectures, and iterating faster than human oversight allows. Once systems can recursively enhance their own intelligence, growth ceases to be linear.
-       </p>
-       This is often referred to as fast takeoff. At that point, we may already be past the event horizon, drawn into a future whose trajectory we can no longer meaningfully redirect. Like a black hole, the pull is gradual at first, then sudden, then irreversible.
-       </p>
-       </p>
-Why Regulation Is About Consent
-Some leaders estimate that AI poses a significant risk to human survival. Others frame it as humanity’s greatest opportunity. Either way, the decision is unfolding without democratic consent.
-       </p>
-This feels less like innovation and more like Russian roulette, where everyone bears the risk but very few people pull the trigger. Regulation is not about fear. It is about legitimacy. It is about asking whether a generation should be allowed to reshape the future of intelligence without the approval of those who will live inside it.
-       </p>
-I do not pretend to have answers. I am still learning how to articulate what I feel about technology, about power, and about responsibility. But I know this. Being born into a moment of profound transformation does not absolve us of moral thought.
-       </p>
-If intelligence is the pinnacle of human achievement, then building something more intelligent than ourselves may be the most consequential act we ever take. And if that is true, then understanding, governance, and restraint are not obstacles to progress. They are the price of maturity.
-       </p>
+      <div class="mt-6 flex items-center justify-between">
+        <div class="text-sm text-neutral-600 dark:text-neutral-400">
+          <span class="font-medium text-neutral-900 dark:text-neutral-200">{author}</span>
+        </div>
 
-      <p class="mt-12 italic">
-        — A.S.
+        <a
+          class="text-sm underline text-neutral-900 dark:text-neutral-100 hover:opacity-80"
+          href={`${import.meta.env.BASE_URL}writing/`}
+        >
+          Back to Writing
+        </a>
+      </div>
+    </header>
+
+    <!-- Divider -->
+    <div class="my-10 h-px w-full bg-neutral-200 dark:bg-neutral-800"></div>
+
+    <!-- Article body -->
+    <div class="prose prose-neutral dark:prose-invert max-w-none prose-p:leading-8 prose-p:text-[17px]">
+      <p class="first-paragraph">
+        Most of what shapes our lives today no longer exists in the physical world. It unfolds inside models, abstractions,
+        incentives, and systems we cannot see. Markets move on expectations. Wars begin with information asymmetry.
+        Entire economies run on prediction.
       </p>
-with intention    
-</p>
-    </article>
-  </section>
+
+      <p>
+        Artificial intelligence fits seamlessly into this invisible architecture, and perhaps that is why its arrival feels
+        less strange than it should. Humanity is approaching the creation of systems more intelligent than ourselves, and rather
+        than reacting with awe or alarm, we have folded this development into daily workflow. AI augments our writing, automates
+        research, optimizes logistics, and quietly reshapes labor.
+      </p>
+
+      <p>
+        The transition feels gradual, almost mundane. But speed has a way of disguising magnitude. We are moving faster than the
+        human brain and our institutions were designed to understand.
+      </p>
+
+      <!-- Pull quote -->
+      <figure class="my-10 rounded-2xl border border-neutral-200 dark:border-neutral-800 bg-neutral-50 dark:bg-neutral-900/40 p-7">
+        <blockquote class="text-xl leading-8 font-medium text-neutral-900 dark:text-neutral-100">
+          What unsettles me is not the idea of conscious machines. It is how quickly we have normalized building something more capable
+          than us without fully grappling with what that means for power, agency, and responsibility.
+        </blockquote>
+      </figure>
+
+      <h2>What Our Generation Is Being Asked to Inherit</h2>
+
+      <p>
+        Much of the public debate around AI safety fixates on consciousness, on whether machines will want things, feel emotions,
+        or develop intentions. This misses the point. When you lose to an AI in chess, it is not because the machine is self aware.
+        It is because it is better than you.
+      </p>
+
+      <p>
+        Competence, not consciousness, is what changes the balance of power. An intelligent system does not need feelings to act.
+        It only needs the ability to optimize. If a system can plan, adapt, and execute more effectively than humans, its internal
+        experience becomes irrelevant.
+      </p>
+
+      <p>
+        The belief that AI will remain safe so long as it is not conscious offers false comfort. What makes systems powerful is not
+        awareness. It is capability.
+      </p>
+
+      <h2>The Gorilla Problem</h2>
+
+      <p>
+        There is a moment in evolutionary history when one branch of intelligence surpasses another so completely that the imbalance
+        becomes irreversible. Humans did not dominate gorillas through malice or intent. We surpassed them through cognition.
+        There was nothing gorillas could do to regulate us.
+      </p>
+
+      <p>
+        The uncomfortable possibility is that we are now building the next branch. The gorilla problem is not about machines turning
+        against us. It is about what happens when a more intelligent system exists alongside us and we are no longer the dominant
+        decision makers. Control assumes symmetry, but asymmetry is precisely the risk.
+      </p>
+
+      <h2>Why Markets, Not Intentions, Shape Our AI Future</h2>
+
+      <p>
+        Even if caution were universal, economics would still push development forward. Credit markets remain open. Corporate confidence
+        and spending continue to rise. Global manufacturing volumes are projected to grow sharply. The economic value of advanced AI,
+        often estimated in the tens of quadrillions of dollars, acts like a gravitational force pulling progress toward it.
+      </p>
+
+      <!-- Callout -->
+      <div class="my-10 rounded-2xl border border-neutral-200 dark:border-neutral-800 p-7">
+        <p class="m-0 text-sm text-neutral-700 dark:text-neutral-300">
+          <span class="font-semibold text-neutral-900 dark:text-neutral-100">A simple way to say it:</span>
+          Incentives do not need permission. They only need momentum.
+        </p>
+      </div>
+
+      <p>
+        This is what makes calls to slow down feel naive. No single actor needs to behave recklessly for the system to accelerate.
+        Incentives alone do the work. As young adults entering this world, we are not choosing whether this future happens.
+        We are inheriting it.
+      </p>
+
+      <h2>Fast Takeoff and the Event Horizon</h2>
+
+      <p>
+        There may come a point when AI systems are capable of improving themselves, conducting AI research, optimizing their own architectures,
+        and iterating faster than human oversight allows. Once systems can recursively enhance their own intelligence, growth ceases to be linear.
+      </p>
+
+      <p>
+        This is often referred to as fast takeoff. At that point, we may already be past the event horizon, drawn into a future whose trajectory
+        we can no longer meaningfully redirect. Like a black hole, the pull is gradual at first, then sudden, then irreversible.
+      </p>
+
+      <h2>Why Regulation Is About Consent</h2>
+
+      <p>
+        Some leaders estimate that AI poses a significant risk to human survival. Others frame it as humanity’s greatest opportunity.
+        Either way, the decision is unfolding without democratic consent.
+      </p>
+
+      <p>
+        This feels less like innovation and more like Russian roulette, where everyone bears the risk but very few people pull the trigger.
+        Regulation is not about fear. It is about legitimacy. It is about asking whether a generation should be allowed to reshape the future of
+        intelligence without the approval of those who will live inside it.
+      </p>
+
+      <p>
+        I do not pretend to have answers. I am still learning how to articulate what I feel about technology, about power, and about responsibility.
+        But I know this. Being born into a moment of profound transformation does not absolve us of moral thought.
+      </p>
+
+      <p>
+        If intelligence is the pinnacle of human achievement, then building something more intelligent than ourselves may be the most consequential
+        act we ever take. And if that is true, then understanding, governance, and restraint are not obstacles to progress. They are the price of maturity.
+      </p>
+
+      <div class="mt-10 text-sm text-neutral-600 dark:text-neutral-400">
+        — <span class="font-medium text-neutral-900 dark:text-neutral-200">A.S.</span> —
+      </div>
+
+      <div class="mt-2 text-sm italic text-neutral-500 dark:text-neutral-400">
+        with intention
+      </div>
+    </div>
+  </article>
+
+  <style>
+    /* Drop cap for the first paragraph */
+    :global(.first-paragraph:first-letter) {
+      float: left;
+      font-size: 3.2rem;
+      line-height: 1;
+      padding-right: 0.55rem;
+      padding-top: 0.25rem;
+      font-weight: 700;
+    }
+  </style>
 </Layout>
