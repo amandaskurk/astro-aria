@@ -191,8 +191,33 @@ import Layout from "../layouts/main.astro";
     </div>
   </div>
 
-  <Separator text="Selected projects" />
-  <Projects />
+  
   <Separator text="Writing & research" />
-  <Writings />
+   <Separator text="Writing" />
+
+  <section
+    id="writing"
+    class="relative z-20 w-full max-w-5xl mx-auto px-7 pb-20 xl:px-0"
+  >
+    <div
+      class="rounded-2xl border border-neutral-200 dark:border-neutral-800 bg-white/70 dark:bg-neutral-950/50 p-6"
+    >
+      <a
+        href="/writing/building-minds-we-cannot-govern"
+        class="block rounded-xl border border-neutral-200 dark:border-neutral-800 bg-white/80 dark:bg-neutral-950/60 p-6 hover:bg-white/100 dark:hover:bg-neutral-950/80 transition"
+      >
+        <h3 class="text-lg font-semibold text-neutral-900 dark:text-white">
+          Building Minds We Cannot Govern
+        </h3>
+
+        <p class="mt-2 text-sm text-neutral-600 dark:text-neutral-400">
+          On AI capability, incentives, and why governance is ultimately about consent.
+        </p>
+
+        <p class="mt-4 text-xs text-neutral-500 dark:text-neutral-500">
+          Read the op-ed →
+        </p>
+      </a>
+    </div>
+  </section>
 </Layout>
